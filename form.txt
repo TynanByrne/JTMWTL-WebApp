@@ -1,0 +1,15 @@
+WHAT NEEDS TO GO IN THE FORM:
+
+Sex: M/F
+Age: 15-80
+Weight: 130kg max?
+Height: 250cm max
+Experience training: Beginner, novice, intermediate
+Goals: Burn fat, get strong, gain muscle
+Training frequency: 3, 4 or 5 days
+Carb levels: Low, high, balanced
+
+Other things that may be calculated server side:
+
+BMI
+Calories/macros (+ TDEE)

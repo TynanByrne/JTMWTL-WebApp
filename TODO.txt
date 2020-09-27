@@ -1,0 +1,7 @@
+REQUIRED:
+Finish FAQ section (DONE)
+Write About section
+Create workout plans and strats
+Enter the right exercises into the plans
+Set up correct routes for workout plans (DONE)
+Write content for the main page (form filled)

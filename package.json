@@ -1,0 +1,23 @@
+{
+  "name": "cs50final",
+  "version": "1.0.0",
+  "description": "Starting up my first app",
+  "main": "app.js",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.1.0",
+    "express-session": "^1.17.1",
+    "express-validator": "^6.6.1",
+    "handlebars": "^4.7.6",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

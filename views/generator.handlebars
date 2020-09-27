@@ -1,0 +1,65 @@
+{{#if loggedin}}
+
+<h1>Fitness Plan Generator</h1>
+<hr>
+<p>It doesn't matter whether this is your first time answering these questions or whether you want to update your
+    options. Submit this easy form and you'll get a personalised fitness plan back.</p>
+<p>If you're wondering why a question is necessary, or if you need help answering any of the questions, please refer to
+    the <a href="/FAQs">FAQs section</a>!</p>
+<div class="form-group">
+    <form action="/generator" method="post">
+        <h5>Are you male or female?</h5>
+        <input type="radio" id="male" name="sex" value="male" required>
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="sex" value="female">
+        <label for="female">Female</label>
+        <h5>How old are you?</h5>
+        <input type="number" name="age" min="15" step="1" max="80" required>
+        <h5>How much do you weigh?</h5>
+        <input type="number" name="weight" id="weight" min="20" max="130" required>
+        <label for="weight">kg</label>
+        <h5>How tall are you?</h5>
+        <input type="number" min="1.25" max="2.5" name="height" step="0.01" id="height">
+        <label for="height">m</label>
+        <h5>How experienced are you with weight training?</h5>
+        <input type="radio" id="beginner" name="experience" value="beginner" required>
+        <label for="beginner">Beginner</label>
+        <input type="radio" id="novice" name="experience" value="novice">
+        <label for="novice">Novice</label>
+        <input type="radio" id="intermediate" name="experience" value="intermediate">
+        <label for="intermediate">Intermediate</label>
+        <a href="./faqs/#sitefaq">
+            <p>What do these actually mean, though?</p>
+        </a>
+        <h5>What are your training goals?</h5>
+        <input type="radio" id="burn fat" name="goals" value="burn fat" required>
+        <label for="burn fat">Burn fat</label>
+        <input type="radio" id="get strong" name="goals" value="get strong">
+        <label for="get strong">Get strong</label>
+        <input type="radio" id="build muscle" name="goals" value="build muscle">
+        <label for="build muscle">Build muscle</label>
+        <h5>How many days a week would you like to train?</h5>
+        <input type="radio" id="3" name="frequency" value="3" required>
+        <label for="3">3</label>
+        <input type="radio" id="4" name="frequency" value="4">
+        <label for="4">4</label>
+        <input type="radio" id="5" name="frequency" value="5">
+        <label for="3">5</label>
+        <h5>Would carbohydrate-based would you like your diet to be?</h5>
+        <input type="radio" id="lowcarb" name="carbs" value="lowcarb" required>
+        <label for="lowcarb">Low carb</label>
+        <input type="radio" id="balanced" name="carbs" value="balanced">
+        <label for="balanced">Balanced</label>
+        <input type="radio" id="highcarb" name="carbs" value="highcarb">
+        <label for="highcarb">High carb</label>
+        <input type="submit">
+        <script>
+            document.getElementById("lowcarb").addEventListener("click", () => alert("Some advice!\nIf you are a beginner and don't have specific dietary requirements for choosing low carb, either balanced or high carb is recommended. For more information, please check the FAQs section."));
+        </script>
+    </form>
+
+</div>
+{{else}}
+<p>Oh, it looks like you haven't logged in yet. Go click <a href="/login">this</a> and log in or click <a
+        href="/register">here</a> and register!</p>
+{{/if}}

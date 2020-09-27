@@ -1,0 +1,238 @@
+{{#if loggedin}}
+
+{{#if BMI}}
+<h1 class="welcomeMessage">Welcome back, {{username}}!</h1>
+<hr>
+<h2>{{username}}'s Fitness Plan</h2>
+<div class="plan-section-grid">
+    <h3 class="plan-section-header">Macronutrients</h3>
+</div>
+<div class="macro-flex">
+    <div class="macro">
+        <img class="macro-img" src="https://www.flaticon.com/svg/static/icons/svg/3082/3082022.svg" alt="seafood">
+        <h4>Proteins</h4>
+        <p>{{proteins}} grams</p>
+    </div>
+    <div class="macro">
+        <img class="macro-img" src="https://www.flaticon.com/svg/static/icons/svg/3082/3082026.svg" alt="oils">
+        <h4>Fats</h4>
+        <p>{{fats}} grams</p>
+    </div>
+    <div class="macros">
+        <img class="macro-img" src="https://www.flaticon.com/svg/static/icons/svg/3081/3081918.svg" alt="bread">
+        <h4>Carbohydrates</h4>
+        <p>{{carbohydrates}} grams</p>
+    </div>
+</div>
+<hr>
+<div class="plan-section-grid">
+    <h3 class="plan-section-header">Calories</h3>
+</div>
+<div class="calorie-grid">
+    <div id="TDEE-tag">TDEE</div>
+    <div class="food-bar" id="TDEE-bar">{{TDEE}}</div>
+    <div id="calorie-tag">Target calories</div>
+    <div class="food-bar" id="calorie-bar">{{calories}}</div>
+</div>
+<hr>
+<div class="plan-section-grid">
+    <h3 class="plan-section-header">Workout plan</h3>
+</div>
+{{#ifEqual goals "burn fat"}}
+{{#ifEqual frequency "3"}}
+{{#ifEqual experience "beginner"}}
+{{> burnfat3beginner}}
+{{/ifEqual}}
+{{#ifEqual experience "novice"}}
+{{> burnfat3novice}}
+{{/ifEqual}}
+{{#ifEqual experience "intermediate"}}
+{{> burnfat3intermediate}}
+{{/ifEqual}}
+{{/ifEqual}}
+{{#ifEqual frequency "4"}}
+{{#ifEqual experience "beginner"}}
+{{> burnfat4beginner}}
+{{/ifEqual}}
+{{#ifEqual experience "novice"}}
+{{> burnfat4novice}}
+{{/ifEqual}}
+{{#ifEqual experience "intermediate"}}
+{{> burnfat4intermediate}}
+{{/ifEqual}}
+{{/ifEqual}}
+{{#ifEqual frequency "5"}}
+{{#ifEqual experience "beginner"}}
+{{> burnfat5beginner}}
+{{/ifEqual}}
+{{#ifEqual experience "novice"}}
+{{> burnfat5novice}}
+{{/ifEqual}}
+{{#ifEqual experience "intermediate"}}
+{{> burnfat5intermediate}}
+{{/ifEqual}}
+{{/ifEqual}}
+{{/ifEqual}}
+{{#ifEqual goals "get strong"}}
+{{#ifEqual frequency "3"}}
+{{#ifEqual experience "beginner"}}
+{{> getstrong3beginner}}
+{{/ifEqual}}
+{{#ifEqual experience "novice"}}
+{{> getstrong3novice}}
+{{/ifEqual}}
+{{#ifEqual experience "intermediate"}}
+{{> getstrong3intermediate}}
+{{/ifEqual}}
+{{/ifEqual}}
+{{#ifEqual frequency "4"}}
+{{#ifEqual experience "beginner"}}
+{{> getstrong4beginner}}
+{{/ifEqual}}
+{{#ifEqual experience "novice"}}
+{{> getstrong4novice}}
+{{/ifEqual}}
+{{#ifEqual experience "intermediate"}}
+{{> getstrong4intermediate}}
+{{/ifEqual}}
+{{/ifEqual}}
+{{#ifEqual frequency "5"}}
+{{#ifEqual experience "beginner"}}
+{{> getstrong5beginner}}
+{{/ifEqual}}
+{{#ifEqual experience "novice"}}
+{{> getstrong5novice}}
+{{/ifEqual}}
+{{#ifEqual experience "intermediate"}}
+{{> getstrong5intermediate}}
+{{/ifEqual}}
+{{/ifEqual}}
+{{/ifEqual}}
+{{#ifEqual goals "build muscle"}}
+{{#ifEqual frequency "3"}}
+{{#ifEqual experience "beginner"}}
+{{> buildmuscle3beginner}}
+{{/ifEqual}}
+{{#ifEqual experience "novice"}}
+{{> buildmuscle3novice}}
+{{/ifEqual}}
+{{#ifEqual experience "intermediate"}}
+{{> buildmuscle3intermediate}}
+{{/ifEqual}}
+{{/ifEqual}}
+{{#ifEqual frequency "4"}}
+{{#ifEqual experience "beginner"}}
+{{> buildmuscle4beginner}}
+{{/ifEqual}}
+{{#ifEqual experience "novice"}}
+{{> buildmuscle4novice}}
+{{/ifEqual}}
+{{#ifEqual experience "intermediate"}}
+{{> buildmuscle4intermediate}}
+{{/ifEqual}}
+{{/ifEqual}}
+{{#ifEqual frequency "5"}}
+{{#ifEqual experience "beginner"}}
+{{> buildmuscle5beginner}}
+{{/ifEqual}}
+{{#ifEqual experience "novice"}}
+{{> buildmuscle5novice}}
+{{/ifEqual}}
+{{#ifEqual experience "intermediate"}}
+{{> buildmuscle5intermediate}}
+{{/ifEqual}}
+{{/ifEqual}}
+{{/ifEqual}}
+{{#unless goals}}
+<p>Oops! Something went wrong, and we don't know what your goals are. Try again!</p>
+{{/unless}}
+<script>
+    // adapted from CSS Animation's YouTube channel
+    let TDEE = {{ TDEE }};
+    let calories = {{ calories }};
+    let relativeTDEE;
+    let relativeCalories;
+    if (TDEE > calories) {
+        relativeTDEE = 100;
+        relativeCalories = calories / TDEE * 100;
+    } else {
+        relativeCalories = 100;
+        relativeTDEE = TDEE / calories * 100;
+    }
+    let calorieBar = document.getElementById('calorie-bar');
+    let scroll = window.requestAnimationFrame;
+    let isOnScreen = (element) => {
+        let rectangle = element.getBoundingClientRect();
+        return (
+            rectangle.top >= 0 &&
+            rectangle.left >= 0 &&
+            rectangle.right <= (window.innerWidth || document.documentElement.clientWidth) &&
+            rectangle.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+        );
+    }
+    let classChanger = () => {
+        if (isOnScreen(calorieBar)) {
+            document.getElementById('TDEE-bar').style.width = `${relativeTDEE}%`;
+            document.getElementById('calorie-bar').style.width = `${relativeCalories}%`;
+        } else {
+            document.getElementById('TDEE-bar').style.width = "10vw";
+            document.getElementById('calorie-bar').style.width = "10vw";
+        }
+        scroll(classChanger);
+    }
+    // classChanger();
+    window.addEventListener("scroll", classChanger());
+    window.addEventListener("load", classChanger());
+</script>
+{{else}}
+<h1>Just Tell Me What To Lift</h1>
+<hr>
+<h3>Let's get a plan sorted out for you.</h3>
+<p>Click <a href="/generator">here</a> to answer a few quick questions and get your own personal fitness plan.</p>
+<p>Go on. Do it.</p>
+<img id="gymgear" src="https://www.flaticon.com/svg/static/icons/svg/3163/3163214.svg">
+
+{{/if}}
+{{else}}
+<h1>Just Tell Me What To Lift</h1>
+<hr>
+<div style="margin-left: 20vw; margin-right: 20vw">
+    <h5 >There are a lot of fitness plans and articles out there, but you just need something that works for you. Use this
+        fitness plan generator, and you'll have your training and nutrition sorted. Everything will be personalised for you.
+    </h5>
+    <p>For <b>free</b>. No payment. No adverts. No nonsense.</p>
+    <p>Sound good? Thought so. Now go on and register or log in.</p>
+</div>
+
+<div class="block1">
+    <div class="left-small">
+        <h2>Calories and Macros</h2>
+        <h6>Have your calories and macros calculated for you, effortlessly. Support for low, high, and balanced carb
+            plans.</h6>
+    </div>
+    <img class="bigicon right-big" src="https://www.flaticon.com/svg/static/icons/svg/2738/2738593.svg">
+</div>
+<div class="block2">
+    <img class="bigicon left-big" src="https://www.flaticon.com/svg/static/icons/svg/2996/2996945.svg">
+    <div class="right-small">
+        <h2>Personal Training Plan</h2>
+        <h6>Choose from three goals and receive a 3, 4 or 5 session a week workout plan. No matter your experience
+            level.
+        </h6>
+    </div>
+</div>
+<div class="block1">
+    <div class="left-small">
+        <h2>Fitness Strategy</h2>
+        <h6>Supplement your new fitness plan with a full write up of how to reach your goals. Everything you need to
+            know; nothing you don't.
+        </h6>
+    </div>
+    <img class="bigicon right-big" src="https://www.flaticon.com/svg/static/icons/svg/190/190411.svg">
+</div>
+<div class="flex">
+    <a href="login"><button id="logg" type="button">Log In</button></a>
+    <a href="register"><button id="regg" type="button">Register</button></a>
+</div>
+
+{{/if}}

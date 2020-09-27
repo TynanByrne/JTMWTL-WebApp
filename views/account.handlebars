@@ -1,0 +1,49 @@
+
+<h1>Account overview:</h1>
+<hr>
+<div class="table-grid">
+    <div class="account-info">Account information</div>
+    <div class="account-left">Username</div>
+    <div class="account-right">{{username}}</div>
+    <div class="account-left">Age</div>
+    <div class="account-right">{{age}}</div>
+    <div class="account-left">Goals</div>
+    <div class="account-right">{{goals}}</div>
+    <div class="account-left">Carbohydrate requirements</div>
+    <div class="account-right">{{carbs}}</div>
+</div>
+<div class="container-fluid padding">
+    <a href="/logout"><button type="button" class="btn">Log Out</button></a>
+    <a href="/account/changepassword"><button type="button" class="btn" href="/account/changepassword">Change
+            Password</button></a>
+    <button type="button" class="btn" id="deleteacc">Delete Account</button>
+</div>
+<script>
+    document.getElementById("deleteacc").addEventListener("click", displayWarning);
+    function displayWarning() {
+        let x = document.getElementById("deleteWarning");
+        x.style.display = "grid";
+        x.style.height = "auto";
+    }
+</script>
+
+<div class="warning-grid" id="deleteWarning">
+    <div class="warningSign">
+        <h3>Are you sure you want to delete your account?</h3>
+        <h5>This act cannot be undone.</h5>
+    </div>
+    <div id="nothanks">
+        <button class="btn" id="cancelDelete" type="button">No thanks!</button>
+    </div>
+    <div id="noreally">
+        <a href="/account/deleteacc"><button class="btn" id="eraser" type="button">Delete account</button></a>
+    </div>
+</div>
+<script>
+    document.getElementById("cancelDelete").addEventListener("click", rehide);
+    function rehide() {
+        let x = document.getElementById("deleteWarning");
+        x.style.display = "none";
+        x.style.height = "0px";
+    }
+</script>
