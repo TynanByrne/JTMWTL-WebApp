@@ -13,10 +13,11 @@ to clean up the HTML used to render each page. I had never used any of these tec
 I had to read through a lot of documentation and watch a lot of videos in order to understand the tools
 enough to put all of the pieces together.
 
-In order to store user data, I used MySQL within Node to get a database running. The schema only consists
-of two tables: one for users and one for the forms that each user can submit. These entries can be updated,
-with functionality to resubmit forms and hence update the 'forms' table, and users being able to change
-their passwords. Users may also choose to delete their account if they wish.
+In order to store user data, I used MySQL within Node to get a database running. I had used SQLite3 during
+CS50x which thankfully made MySQL very easy to pick up.The schema only consists of two tables: one for users
+and one for the forms that each user can submit. These entries can be updated, with functionality to resubmit
+forms and hence update the 'forms' table, and users being able to change their passwords. Users may also 
+choose to delete their account if they wish.
 
 Passwords were hashed and encrypted using the bcrypt npm module, so I cannot view the password of a user
 even when I go into the MySQL database and have a look myself.
