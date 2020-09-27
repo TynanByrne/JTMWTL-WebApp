@@ -31,7 +31,7 @@ colour when hovered over.
 
 Speaking of which, for some of the more involved interactivity I used vanilla JavaScript to give the site
 a bit more to it. This includes the aforementioned animations depending upon whether the calorie bar was in
-the viewport, or the delete account button showing a hidden warning when pressed to more the UI a bit more
+the viewport, or the delete account button showing a hidden warning when pressed to make the UI a bit more
 forgiving.
 
 All in all, it was a lot of work but I'm proud of what I've achieved and I've learned so much. I hope someone
