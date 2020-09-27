@@ -2,14 +2,16 @@ My final project for CS50X - Just Tell Me What To Lift
 
 Video showing and explaining the project can be found at: https://youtu.be/5nws8_f8v_o
 
-For my final project, I decided to create a website that generates fitness plans for users after they
+For my final project for CS50x, I decided to create a website that generates fitness plans for users after they
 answer some simple questions. After doing so, they receive a calorie target, workout plan and a write
 up of the strategy they should take to reach their goals. This is all completely custom to them, and
 aims to take the complexity of fitness away for the average person.
 
 I decided to use Node.js for this app, in conjunction with Express and Handlebars to set up my server.
 This allowed me to set up all my pages and routes, and have a templating engine with views and partials
-to clean up the HTML used to render each page.
+to clean up the HTML used to render each page. I had never used any of these technologies before, so
+I had to read through a lot of documentation and watch a lot of videos in order to understand the tools
+enough to put all of the pieces together.
 
 In order to store user data, I used MySQL within Node to get a database running. The schema only consists
 of two tables: one for users and one for the forms that each user can submit. These entries can be updated,
@@ -29,13 +31,16 @@ transitions and a consistent colour scheme. These animations are seen throughout
 target bars stretching in size when they appear on the screen, or the FAQ answers appearing and changing
 colour when hovered over.
 
+Here is a gif of the responsive design I used. Just three breakpoints were needed:
+![Responsive design](JTMWTL.gif)
+
 Speaking of which, for some of the more involved interactivity I used vanilla JavaScript to give the site
 a bit more to it. This includes the aforementioned animations depending upon whether the calorie bar was in
 the viewport, or the delete account button showing a hidden warning when pressed to make the UI a bit more
 forgiving.
 
-All in all, it was a lot of work but I'm proud of what I've achieved and I've learned so much. I hope someone
-gets some use out of this site when I host it, and I hope I carry on messing with the front and the back end
-in order to make useful applications.
+All in all, it was a lot of work over about 1 month but I'm proud of what I've achieved and I've learned so much.
+I hope someone gets some use out of this site when I host it, and I hope I carry on messing with the front and the
+back end in order to make useful applications.
 
 My name is Tynan Byrne, and this was CS50.
