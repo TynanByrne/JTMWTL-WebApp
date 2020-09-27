@@ -29,7 +29,7 @@ transitions and a consistent colour scheme. These animations are seen throughout
 target bars stretching in size when they appear on the screen, or the FAQ answers appearing and changing
 colour when hovered over.
 Here is a gif of the responsive design I used; just three breakpoints were needed
-[/JTMWTL.gif]
+![Responsive design](JTMWTL.gif)
 
 Speaking of which, for some of the more involved interactivity I used vanilla JavaScript to give the site
 a bit more to it. This includes the aforementioned animations depending upon whether the calorie bar was in
