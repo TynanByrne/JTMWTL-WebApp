@@ -9,7 +9,7 @@ aims to take the complexity of fitness away for the average person.
 
 I decided to use <b>Node.js</b> for this app, in conjunction with Express and Handlebars to set up my server.
 This allowed me to set up all my pages and routes, and have a templating engine with views and partials
-to clean up the HTML used to render each page. I had never used any of these technologies before, so
+to clean up the HTML used to render each page. I had <b>never used any of these technologies before</b>, so
 I had to read through a lot of documentation and watch a lot of videos in order to understand the tools
 enough to put all of the pieces together.
 
