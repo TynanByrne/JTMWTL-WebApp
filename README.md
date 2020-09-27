@@ -7,7 +7,7 @@ answer some simple questions. After doing so, they receive a calorie target, wor
 up of the strategy they should take to reach their goals. This is all completely custom to them, and
 aims to take the complexity of fitness away for the average person.
 
-I decided to use Node.js for this app, in conjunction with Express and Handlebars to set up my server.
+I decided to use <b>Node.js</b> for this app, in conjunction with Express and Handlebars to set up my server.
 This allowed me to set up all my pages and routes, and have a templating engine with views and partials
 to clean up the HTML used to render each page. I had never used any of these technologies before, so
 I had to read through a lot of documentation and watch a lot of videos in order to understand the tools
