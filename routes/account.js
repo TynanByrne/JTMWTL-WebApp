@@ -12,7 +12,7 @@ const upperFirst = (string) => {
 }
 
 // Connects to an existing mysql server
-const connection = mysql.createConnection({
+const connection = mysql.createPool({
     host: process.env.NODE_ENV === "production" ? process.env.DB_HOSTNAME : 'localhost',
     user: process.env.NODE_ENV === "production" ? process.env.DB_USER : 'root',
     password: process.env.NODE_ENV === "production" ? process.env.DB_PASSWORD : 'password',
