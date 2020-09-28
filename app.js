@@ -105,7 +105,7 @@ connection.query("SELECT username, password FROM users", function (err, result, 
 
 // Keep the connection alive
 setInterval(function () {
-    db.query('SELECT 1');
+    connection.query('SELECT 1');
 }, 5000);
 
 app.use('/', indexRouter);
