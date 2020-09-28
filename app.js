@@ -104,7 +104,7 @@ connection.query("SELECT username, password FROM users", function (err, result, 
 });
 
 // Handle disconnects from the server in production
-function handleDisconnect() {
+let handleDisconnect = () => {
     connection = mysql.createConnection(db_config);
      
   
