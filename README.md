@@ -1,8 +1,8 @@
-My final project for CS50X - <u>Just Tell Me What To Lift</u>
+Just Tell Me What To Lift
 
 Video showing and explaining the project can be found at: https://youtu.be/5nws8_f8v_o
 
-For my final project for CS50x, I decided to create a website that generates fitness plans for users after they
+As a big fitness fan, I decided to create a website that generates fitness plans for users after they
 answer some simple questions. After doing so, they receive a calorie target, workout plan and a write
 up of the strategy they should take to reach their goals. This is all completely custom to them, and
 aims to take the complexity of fitness away for the average person.
@@ -43,5 +43,3 @@ forgiving.
 All in all, it was a lot of work over about 1 month but I'm proud of what I've achieved and I've learned so much.
 I hope someone gets some use out of this site when I host it, and I hope I carry on messing with the front and the
 back end in order to make useful applications.
-
-My name is Tynan Byrne, and this was CS50.
