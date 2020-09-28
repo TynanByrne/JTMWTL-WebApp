@@ -124,7 +124,7 @@ let handleDisconnect = () => {
     });
   }
   
-  handleDisconnect();
+handleDisconnect();
 
 app.use('/', indexRouter);
 app.use('/generator', generatorRouter);
