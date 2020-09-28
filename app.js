@@ -4,6 +4,7 @@ const port = process.env.PORT || 3000;
 const handlebars = require('express-handlebars');
 const mysql = require('mysql');
 const session = require('express-session');
+const MemoryStore = require('memorystore')(session);
 const bodyParser = require('body-parser');
 const createError = require('http-errors');
 
@@ -39,12 +40,20 @@ app.set('view engine', 'handlebars');
 // Set the handlebars configurations
 app.engine('handlebars', hbs.engine);
 
-// Use the express sessions package
+// New memorystore sessions
+app.use(session({
+    cookie: { maxAge: 86400000 },
+    store: new MemoryStore({
+      checkPeriod: 86400000 // prune expired entries every 24h
+    }),
+    secret: 'supersecret'
+}))
+/* // Use the express sessions package
 app.use(session({
     secret: 'supersecret',
     resave: true,
     saveUninitialized: true
-}));
+})); */
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
