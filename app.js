@@ -105,16 +105,16 @@ connection.query("SELECT username, password FROM users", function (err, result, 
 
 // Handle disconnects from the server in production
 let handleDisconnect = () => {
-    connection = mysql.createConnection(db_config);
+    con = mysql.createConnection(connection);
      
   
-    connection.connect(function(err) {
+    con.connect(function(err) {
       if(err) { 
         console.log('error when connecting to db:', err);
         setTimeout(handleDisconnect, 2000); 
       }                                     
     });                                     
-    connection.on('error', function(err) {
+    con.on('error', function(err) {
       console.log('db error', err);
       if(err.code === 'PROTOCOL_CONNECTION_LOST') {
         handleDisconnect();  
