@@ -103,6 +103,11 @@ connection.query("SELECT username, password FROM users", function (err, result, 
     console.log(result);
 });
 
+// Keep the connection alive
+setInterval(function () {
+    db.query('SELECT 1');
+}, 5000);
+
 app.use('/', indexRouter);
 app.use('/generator', generatorRouter);
 app.use('/faqs', faqsRouter);
