@@ -5,12 +5,12 @@ const bcrypt = require('bcryptjs');
 
 // Connects to an existing mysql server
 const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'password',
-    database: 'fitnessapp',
+    host: process.env.NODE_ENV === "production" ? process.env.DB_HOSTNAME : 'localhost',
+    user: process.env.NODE_ENV === "production" ? process.env.DB_USER : 'root',
+    password: process.env.NODE_ENV === "production" ? process.env.DB_PASSWORD : 'password',
+    database: process.env.NODE_ENV === "production" ? process.env.DATABASE : 'fitnessapp',
     port: '3306'
-})
+});
 // Check the connection to the db is working
 connection.connect(function (err) {
     if (err) throw err;

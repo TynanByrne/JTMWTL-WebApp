@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 const handlebars = require('express-handlebars');
 const mysql = require('mysql');
 const session = require('express-session');
@@ -63,21 +63,35 @@ const isEqual = (a, b, opts) => {
 
 // Connects to an existing mysql server
 const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'password',
-    database: 'fitnessapp',
+    host: process.env.NODE_ENV === "production" ? process.env.DB_HOSTNAME : 'localhost',
+    user: process.env.NODE_ENV === "production" ? process.env.DB_USER : 'root',
+    password: process.env.NODE_ENV === "production" ? process.env.DB_PASSWORD : 'password',
+    database: process.env.NODE_ENV === "production" ? process.env.DATABASE : 'fitnessapp',
     port: '3306'
-})
+});
 // Check the connection to the db is working
 connection.connect(function (err) {
     if (err) throw err;
     console.log("Connected! Nice!");
 });
 
+// Create tables if they don't exist yet
+let forms = "CREATE TABLE IF NOT EXISTS forms (user_id int NOT NULL, sex text NOT NULL, age int NOT NULL, weight float NOT NULL, height float NOT NULL, experience text NOT NULL, goals text NOT NULL, frequency int NOT NULL, carbs text NOT NULL, PRIMARY KEY (user_id))";
+connection.query(forms, (err, results) => {
+    if (err) throw err;
+    console.log("Table created!");
+});
+
+let users = "CREATE TABLE IF NOT EXISTS users (id int NOT NULL AUTO_INCREMENT, username text NOT NULL, password text NOT NULL, PRIMARY KEY (id))";
+connection.query(users, (err, results) => {
+    if (err) throw err;
+    console.log("Second table created!");
+});
+
 // Check the query works fine
 connection.query("SELECT username, password FROM users", function (err, result, fields) {
     if (err) throw err;
+    console.log(result);
 });
 
 app.use('/', indexRouter);
