@@ -28,7 +28,7 @@ router
         }
         // Pull the password from the user with that username (if there is one)
         connection.query("SELECT password FROM users WHERE username = ?", username, (error, results, fields) => {
-            console.log(results);
+            console.log(results); 
             if (error) {
                 console.error("Couldn't fetch the user in the database when logging in");
                 return res.render('errormessage', { title: 'Oops!', layout: 'error', error: '500. Internal server error.' });
