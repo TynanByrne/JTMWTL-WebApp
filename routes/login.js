@@ -12,7 +12,7 @@ const connection = mysql.createPool({
     port: '3306'
 });
 // Check the connection to the db is working
-connection.connect(function (err) {
+connection.getConnection(function (err) {
     if (err) throw err;
     console.log("Connected! Nice!");
 });

@@ -11,7 +11,7 @@ const connection = mysql.createPool({
     port: '3306'
 });
 // Check the connection to the db is working
-connection.connect(function (err) {
+connection.getConnection(function (err) {
     if (err) throw err;
     console.log("Connected! Nice!");
 });
@@ -48,6 +48,7 @@ router
 
         let sql = "SELECT * FROM forms JOIN users ON forms.user_id = users.id WHERE username = ?";
         connection.query(sql, username, (error, results, fields) => {
+            connection.release();
             if (error) {
                 console.error("Couldn't fetch the data in the database  (IT'S HERE)");
                 return res.render('errormessage', {
@@ -60,6 +61,7 @@ router
                 console.log(prevQuery);
                 // Get the user's id from the "users" table
                 connection.query("SELECT id FROM users WHERE username = ?", username, (error, results, fields) => {
+                    connection.release();
                     if (error) {
                         console.error("Couldn't fetch the data in the database");
                         return res.render('errormessage', {
@@ -74,6 +76,7 @@ router
                         // Now, insert the form into the database under their id
                         let sql = "INSERT INTO forms (user_id, sex, age, weight, height, experience, goals, frequency, carbs) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
                         connection.query(sql, [user_id, sex, age, weight, height, experience, goals, frequency, carbs], (error, results, fields) => {
+                            connection.release();
                             if (error) {
                                 console.error("Couldn't insert the data into the database");
                                 return res.render('errormessage', {
@@ -93,6 +96,7 @@ router
                     } else {
                         let sql = "UPDATE forms SET sex = ?, age = ?, weight = ?, height = ?, experience = ?, goals = ?, frequency = ?, carbs = ? WHERE user_id = ?";
                         connection.query(sql, [sex, age, weight, height, experience, goals, frequency, carbs, user_id], (error, results) => {
+                            connection.release();
                             if (error) {
                                 console.error("Couldn't update the data in the database");
                                 return res.render('errormessage', {

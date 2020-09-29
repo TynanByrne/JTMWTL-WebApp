@@ -20,7 +20,7 @@ const connection = mysql.createPool({
     port: '3306'
 });
 // Check the connection to the db is working
-connection.connect(function (err) {
+connection.getConnection(function (err) {
     if (err) throw err;
     console.log("Connected! Nice!");
 });
@@ -32,6 +32,7 @@ router
             const username = req.session.username;
             let sql = ("SELECT sex, age, weight, height, experience, goals, frequency, carbs FROM forms JOIN users ON forms.user_id = users.id WHERE username = ?");
             connection.query(sql, username, (error, results, fields) => {
+                connection.release();
                 if (error) throw error;
                 if (!results || results.length != 1) {
                     const username = req.session.username;

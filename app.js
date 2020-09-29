@@ -18,6 +18,7 @@ const loginRouter = require('./routes/login');
 const logoutRouter = require('./routes/logout');
 const registerRouter = require('./routes/register');
 const accountRouter = require('./routes/account');
+const Pool = require('mysql/lib/Pool');
 
 const hbs = handlebars.create({
     layoutsDir: __dirname + '/views/layouts',
@@ -79,7 +80,7 @@ const connection = mysql.createPool({
     port: '3306'
 });
 // Check the connection to the db is working
-connection.connect(function (err) {
+connection.getConnection(function (err) {
     if (err) throw err;
     console.log("Connected! Nice!");
 });
