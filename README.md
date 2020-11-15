@@ -1,4 +1,4 @@
-Just Tell Me What To Lift
+<h1>Just Tell Me What To Lift</h1>
 
 Video showing and explaining the project can be found at: https://youtu.be/5nws8_f8v_o
 
