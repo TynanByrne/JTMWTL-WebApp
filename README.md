@@ -1,5 +1,7 @@
 <h1>Just Tell Me What To Lift</h1>
 
+Site is hosted with Heroku and can be visited: https://jtmwtl-fitnessapp.herokuapp.com/
+
 Video showing and explaining the project can be found at: https://youtu.be/5nws8_f8v_o
 
 As a big fitness fan, I decided to create a website that generates fitness plans for users after they
